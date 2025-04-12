@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: sala-tecnica-backend
+        ports:
+        - containerPort: 5000
+        env:
+        - name: THINGSPEAK_API_KEY
+          value: "71RCOO6OUVOLMTMD"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "123456"

@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - THINGSPEAK_API_KEY=71RCOO6OUVOLMTMD
+    depends_on:
+      - mysql
+    networks:
+      - sala-tecnica-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - sala-tecnica-network
+
+  mysql:
+    build: ./database
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=sensor_data
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - sala-tecnica-network
+
+volumes:
+  mysql-data:
+
+networks:
+  sala-tecnica-network:
+    driver: bridge
+
+    services:
+  mysql:
+    ports:
+      - "3307:3306"

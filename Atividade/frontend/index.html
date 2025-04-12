@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala Técnica Inteligente</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Sala Técnica Inteligente - Monitoramento M2M</h1>
+        
+        <div class="sensor-container">
+            <div class="sensor-card">
+                <h2>Temperatura</h2>
+                <div class="sensor-value" id="temperature">-- °C</div>
+                <canvas id="tempChart"></canvas>
+            </div>
+            
+            <div class="sensor-card">
+                <h2>Umidade</h2>
+                <div class="sensor-value" id="humidity">-- %</div>
+                <canvas id="humidityChart"></canvas>
+            </div>
+            
+            <div class="sensor-card">
+                <h2>Presença</h2>
+                <div class="sensor-value" id="presence">--</div>
+                <div class="presence-indicator" id="presenceIndicator"></div>
+            </div>
+            
+            <div class="sensor-card">
+                <h2>Tensão Elétrica</h2>
+                <div class="sensor-value" id="voltage">-- V</div>
+                <canvas id="voltageChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="last-update">Última atualização: <span id="lastUpdate">--</span></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
